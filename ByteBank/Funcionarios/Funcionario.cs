@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ByteBank.Sistemas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ namespace ByteBank.Funcionarios
         public string Nome { get; set; }
         public string CPF { get; private set; }
         public double Salario { get; protected set; }
+        public string Senha { get; set; }
+
 
         public Funcionario(double salario, string cpf)
         {
@@ -24,6 +27,10 @@ namespace ByteBank.Funcionarios
             TotalDeFuncionarios++;
         }
 
+        public bool Autenticar(Autenticavel funcionario, string senha)
+        {
+            return Senha == senha;
+        }
         public abstract void AumentarSalario();
 
         public abstract double GetBonificacao();
